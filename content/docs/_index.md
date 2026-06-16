@@ -3,6 +3,10 @@ title = "Documentation"
 description = "Learn how to use hx, the fast Haskell toolchain CLI"
 template = "section.html"
 sort_by = "weight"
+
+[extra]
+# This in-site docs landing duplicates the canonical docs home on docs.arcanist.sh.
+canonical_url = "https://docs.arcanist.sh/hx/"
 +++
 
 Welcome to the hx documentation. hx is a fast, opinionated, batteries-included toolchain for Haskell.

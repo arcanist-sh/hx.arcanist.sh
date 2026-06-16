@@ -33,8 +33,13 @@
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
-    {# Canonical URL #}
-    {% if current_url is defined %}
+    {# Canonical URL — pages/sections may override via extra.canonical_url
+       (e.g. in-site docs that are canonically hosted on docs.arcanist.sh) #}
+    {% if page.extra.canonical_url %}
+    <link rel="canonical" href="{{ page.extra.canonical_url | safe }}">
+    {% elif section.extra.canonical_url %}
+    <link rel="canonical" href="{{ section.extra.canonical_url | safe }}">
+    {% elif current_url is defined %}
     <link rel="canonical" href="{{ current_url | safe }}">
     {% endif %}
 
