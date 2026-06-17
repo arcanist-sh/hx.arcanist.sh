@@ -71,8 +71,8 @@ tagline = "Haskell, finally fast"
 tagline_sub = "Fast, unified, futuristic"
 subtitle = "A fast, opinionated, next-gen toolchain for Haskell. Built in Rust."
 gradient_title = true
-badge = "v0.4.3"
-badge_url = "https://github.com/arcanist-sh/hx"
+badge = "v0.7.0"
+badge_url = "https://github.com/arcanist-sh/hx/releases/tag/v0.7.0"
 features_title = "Why hx?"
 features_subtitle = "Everything you need to build Haskell projects. No more juggling cabal, stack, and ghcup."
 
