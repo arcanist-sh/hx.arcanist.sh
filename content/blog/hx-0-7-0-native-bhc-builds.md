@@ -49,7 +49,7 @@ hx itself is now pinned to Rust 1.96.0 via `rust-toolchain.toml` and `mise.toml`
 hx upgrade
 
 # Or install fresh
-curl -fsSL https://get.arcanist.sh/hx | sh
+curl -fsSL https://arcanist.sh/hx/install.sh | sh
 ```
 
 ```
