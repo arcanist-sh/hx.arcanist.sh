@@ -241,7 +241,7 @@ $ hx doctor
 
 Environment Check
 ─────────────────
-✓ hx 0.4.0
+✓ hx 0.7.0
 ✓ GHC 9.8.2
 ✓ Cabal 3.12.1.0
 ✓ HLS 2.6.0.0 (compatible)
