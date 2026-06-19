@@ -8,13 +8,13 @@ template = "page.html"
 
 Numbers, not adjectives. Here's the methodology and the measurements behind hx's speed claims — and an honest account of where hx is *not* faster.
 
-> **Measured with hx 0.7.5.** hx's native build path is faster than cabal on **cold builds**, **CLI startup**, and **no-op incremental rebuilds**; cabal is still faster on `clean`. stack was not re-measured for this release, so it is omitted rather than estimated.
+> **Measured with hx 0.7.6.** hx's native build path is faster than cabal on **cold builds**, **CLI startup**, and **no-op incremental rebuilds**; cabal is still faster on `clean`. stack was not re-measured for this release, so it is omitted rather than estimated.
 
 ## Test Environment
 
 | Property | Value |
 |----------|-------|
-| **hx version** | 0.7.5 |
+| **hx version** | 0.7.6 |
 | **GHC version** | 9.8.2 |
 | **Cabal version** | 3.12.1.0 |
 | **stack** | not measured |
@@ -72,6 +72,6 @@ hyperfine --warmup 3 'hx build --native' 'cabal build'
 
 Full methodology and the exact test files are in [`docs/BENCHMARKS.md`](https://github.com/arcanist-sh/hx/blob/main/docs/BENCHMARKS.md).
 
-## Not re-measured for 0.7.5
+## Not re-measured for 0.7.6
 
-Project init, single-file-change incremental builds, preprocessor overhead, dependency-resolution/solver scaling, and memory usage were measured on older releases but have **not** been re-run for 0.7.5. Rather than present stale figures as current, they're omitted here. Contributions welcome — [open an issue](https://github.com/arcanist-sh/hx/issues).
+Project init, single-file-change incremental builds, preprocessor overhead, dependency-resolution/solver scaling, and memory usage were measured on older releases but have **not** been re-run for 0.7.6. Rather than present stale figures as current, they're omitted here. Contributions welcome — [open an issue](https://github.com/arcanist-sh/hx/issues).
