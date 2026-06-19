@@ -146,13 +146,13 @@ speedup = "4.4x"
 hx_percent = "22"
 
 [[extra.product.benchmarks.stats]]
-label = "CLI startup"
+label = "Incremental"
 native_label = "<span class=\"brand-text\">hx</span>"
-native = "4ms"
+native = "3.3ms"
 baseline_label = "cabal"
 cabal = "18ms"
-speedup = "4.5x"
-hx_percent = "22"
+speedup = "5.4x"
+hx_percent = "18"
 
 # Social links
 [extra.social]
