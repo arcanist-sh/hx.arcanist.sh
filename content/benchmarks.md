@@ -8,13 +8,13 @@ template = "page.html"
 
 Numbers, not adjectives. Here's the methodology and the measurements behind hx's speed claims — and an honest account of where hx is *not* faster.
 
-> **Measured with hx 0.7.6.** hx's native build path is faster than cabal on **cold builds**, **CLI startup**, and **no-op incremental rebuilds**; cabal is still faster on `clean`. stack was not re-measured for this release, so it is omitted rather than estimated.
+> **Measured with hx 0.7.7.** hx is faster than cabal on all four operations measured here — cold builds, CLI startup, no-op incremental rebuilds, and clean. stack was not re-measured for this release, so it is omitted rather than estimated.
 
 ## Test Environment
 
 | Property | Value |
 |----------|-------|
-| **hx version** | 0.7.6 |
+| **hx version** | 0.7.7 |
 | **GHC version** | 9.8.2 |
 | **Cabal version** | 3.12.1.0 |
 | **stack** | not measured |
@@ -31,13 +31,13 @@ Numbers, not adjectives. Here's the methodology and the measurements behind hx's
 | CLI startup (`--help`) | **4.0 ms** | 18.0 ms | hx **4.5× faster** |
 | Cold build (clean state) | **0.45 s** | 2.02 s | hx **4.4× faster** |
 | Incremental (no changes) | **3.3 ms** | 18.2 ms | hx **5.4× faster** |
-| Clean | 31.9 ms | **17.6 ms** | cabal 1.8× faster |
+| Clean | **3.7 ms** | 17.8 ms | hx **4.8× faster** |
 
-## Where hx wins — and where it doesn't
+## Where hx wins
 
-**hx's real, repeatable advantages are cold builds (≈4.4×), CLI startup (≈4.5×), and no-op incremental rebuilds (≈5.4×).** The native build path constructs the module graph and invokes GHC directly, skipping cabal's package-database queries and build-plan calculation; hx is a native Rust binary with no GHC-runtime startup cost; and a no-op rebuild short-circuits before any subprocess spawns.
+**hx is faster than cabal on all four operations measured here** — cold builds (≈4.4×), CLI startup (≈4.5×), no-op incremental rebuilds (≈5.4×), and clean (≈4.8×). The native build path invokes GHC directly, skipping cabal's package-database queries and build-plan calculation, and hx is a native Rust binary with no GHC-runtime startup cost.
 
-**`clean` is the one operation where cabal still wins** (hx 31.9 ms vs cabal 17.6 ms). The no-op rebuild used to be slow too — it spent ~74 ms spawning `ghc`/`ghc-pkg` before realizing nothing had changed — until that path was short-circuited; we'd rather publish the warts honestly than dress them up.
+Two of those weren't always wins, and we'd rather say so than airbrush it: the no-op rebuild used to spend ~74 ms spawning `ghc`/`ghc-pkg` before realizing nothing had changed, and `clean` used to spin up the plugin runtime needlessly. Both paths were short-circuited. Earlier published cabal figures for incremental and clean were also overstated; these numbers are measured fresh.
 
 ## Native Build Mode
 
@@ -72,6 +72,6 @@ hyperfine --warmup 3 'hx build --native' 'cabal build'
 
 Full methodology and the exact test files are in [`docs/BENCHMARKS.md`](https://github.com/arcanist-sh/hx/blob/main/docs/BENCHMARKS.md).
 
-## Not re-measured for 0.7.6
+## Not re-measured for 0.7.7
 
-Project init, single-file-change incremental builds, preprocessor overhead, dependency-resolution/solver scaling, and memory usage were measured on older releases but have **not** been re-run for 0.7.6. Rather than present stale figures as current, they're omitted here. Contributions welcome — [open an issue](https://github.com/arcanist-sh/hx/issues).
+Project init, single-file-change incremental builds, preprocessor overhead, dependency-resolution/solver scaling, and memory usage were measured on older releases but have **not** been re-run for 0.7.7. Rather than present stale figures as current, they're omitted here. Contributions welcome — [open an issue](https://github.com/arcanist-sh/hx/issues).
