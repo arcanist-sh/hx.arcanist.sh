@@ -71,6 +71,10 @@ tagline = "Haskell, finally fast"
 tagline_sub = "Fast, unified, futuristic"
 subtitle = "A fast, opinionated, next-gen toolchain for Haskell. Built in Rust."
 gradient_title = true
+# Single source for the version badge: the latest GitHub release is fetched at
+# build time. The static badge/badge_url below are only a fallback if the API
+# is unavailable during a build.
+version_repo = "arcanist-sh/hx"
 badge = "v0.7.7"
 badge_url = "https://github.com/arcanist-sh/hx/releases/tag/v0.7.7"
 features_title = "Why hx?"

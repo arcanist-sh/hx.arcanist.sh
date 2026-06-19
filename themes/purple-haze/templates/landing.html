@@ -46,7 +46,16 @@
     <div class="hero__container">
         {# Upper right corner: version badge + secondary tagline #}
         <div class="hero__corner">
-            {% if config.extra.product.badge %}
+            {# Version badge: auto-fetched from the latest GitHub release when
+               config.extra.product.version_repo is set, else the static badge. #}
+            {% if config.extra.product.version_repo %}
+            {% set hx_release = load_data(url="https://api.github.com/repos/" ~ config.extra.product.version_repo ~ "/releases/latest", format="json", required=false) %}
+            {% endif %}
+            {% if hx_release and hx_release.tag_name %}
+            <a href="https://github.com/{{ config.extra.product.version_repo }}/releases/tag/{{ hx_release.tag_name }}" class="hero__badge hero__badge--gradient" target="_blank" rel="noopener">
+                {{ hx_release.tag_name }}
+            </a>
+            {% elif config.extra.product.badge %}
             <a href="{{ config.extra.product.badge_url | default(value='#') }}" class="hero__badge hero__badge--gradient" target="_blank" rel="noopener">
                 {{ config.extra.product.badge }}
             </a>
