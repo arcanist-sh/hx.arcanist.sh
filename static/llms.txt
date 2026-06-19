@@ -1,0 +1,23 @@
+# hx
+
+> hx is a fast, opinionated, batteries-included Haskell toolchain CLI written in Rust. One binary replaces ghcup, cabal, stack, fourmolu, hlint, and hpc — build, test, run, format, lint, lock dependencies, and manage GHC toolchains.
+
+hx manages GHC itself (no ghcup required), uses an `hx.toml` manifest and an `hx.lock` lockfile for deterministic builds, and emits structured errors with suggested fixes and meaningful exit codes (0 success, 4 toolchain error, 5 build/test failure). It ships an MCP server (`hx mcp`, JSON-RPC over stdio) so AI agents can drive it directly.
+
+## Docs
+
+- [Installation](https://docs.arcanist.sh/hx/docs/installation/): install via the script, cargo, or versioned GitHub releases
+- [Quick Start](https://docs.arcanist.sh/hx/docs/quickstart/): create, build, and run your first project
+- [Command reference](https://docs.arcanist.sh/hx/docs/commands/): every CLI command and its flags
+- [Configuration (hx.toml)](https://docs.arcanist.sh/hx/docs/configuration/hx-toml/): the project manifest format
+- [Benchmarks](https://docs.arcanist.sh/hx/docs/development/benchmarks/): measured performance vs cabal (honest, reproducible)
+
+## For agents
+
+- [AGENTS.md](https://github.com/arcanist-sh/hx/blob/main/AGENTS.md): how to drive hx from an AI agent — exit codes, the MCP server, and common workflows
+- MCP server: run `hx mcp` to expose tools for build, check, test, run, lock, sync, fmt, lint, doctor, and dependency management
+
+## Source
+
+- [GitHub repository](https://github.com/arcanist-sh/hx): source, issues, releases
+- [Changelog](https://github.com/arcanist-sh/hx/blob/main/CHANGELOG.md): release notes
