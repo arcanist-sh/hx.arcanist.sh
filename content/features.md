@@ -241,7 +241,7 @@ $ hx doctor
 
 Environment Check
 ─────────────────
-✓ hx 0.7.0
+✓ hx 0.7.7
 ✓ GHC 9.8.2
 ✓ Cabal 3.12.1.0
 ✓ HLS 2.6.0.0 (compatible)
@@ -322,11 +322,13 @@ Native mode constructs the module graph and invokes GHC directly:
 hx build --native
 ```
 
-| Metric | Native | Cabal Backend |
-|--------|--------|---------------|
-| Cold build | 0.48s | 2.68s |
-| Incremental | 0.05s | 0.39s |
+| Metric | Native | cabal |
+|--------|--------|-------|
+| Cold build | 0.45s | 2.02s |
+| Incremental (no-op) | 3.3ms | 18ms |
 | Overhead | Minimal | Package DB queries |
+
+See the [full benchmarks](/benchmarks/) for methodology and all four operations.
 
 ### When Native Mode Applies
 
