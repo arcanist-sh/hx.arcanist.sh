@@ -8,19 +8,19 @@ template = "page.html"
 
 Numbers, not adjectives. Here's the methodology and the measurements behind hx's speed claims — and an honest account of where hx is *not* faster.
 
-> **Measured with hx 0.7.7.** hx is faster than cabal on all four operations measured here — cold builds, CLI startup, no-op incremental rebuilds, and clean. stack was not re-measured for this release, so it is omitted rather than estimated.
+> **Measured with hx 0.8.0.** hx is faster than cabal on all four operations measured here — cold builds, CLI startup, no-op incremental rebuilds, and clean. stack was not re-measured for this release, so it is omitted rather than estimated.
 
 ## Test Environment
 
 | Property | Value |
 |----------|-------|
-| **hx version** | 0.7.7 |
+| **hx version** | 0.8.0 |
 | **GHC version** | 9.8.2 |
 | **Cabal version** | 3.12.1.0 |
 | **stack** | not measured |
 | **Platform** | macOS, Apple M4 (10-core) |
-| **Tooling** | hyperfine 1.20.0 (8–20 runs, 2–3 warmup) |
-| **Date** | 2026-06-18 |
+| **Tooling** | hyperfine 1.20.0 (6–30 runs, 1–5 warmup) |
+| **Date** | 2026-06-21 |
 
 ## Results
 
@@ -28,16 +28,20 @@ Numbers, not adjectives. Here's the methodology and the measurements behind hx's
 
 | Operation | hx (`--native`) | cabal | Result |
 |-----------|-----------------|-------|--------|
-| CLI startup (`--help`) | **4.0 ms** | 18.0 ms | hx **4.5× faster** |
-| Cold build (clean state) | **0.45 s** | 2.02 s | hx **4.4× faster** |
-| Incremental (no changes) | **3.3 ms** | 18.2 ms | hx **5.4× faster** |
-| Clean | **3.7 ms** | 17.8 ms | hx **4.8× faster** |
+| CLI startup (`--help`) | **3.2 ms** | 18.6 ms | hx **5.8× faster** |
+| Cold build (clean state) | **0.39 s** | 2.04 s | hx **5.2× faster** |
+| Incremental (no changes) | **3.2 ms** | 18.2 ms | hx **5.7× faster** |
+| Clean | **4.7 ms** | 18.9 ms | hx **4.1× faster** |
 
 ## Where hx wins
 
-**hx is faster than cabal on all four operations measured here** — cold builds (≈4.4×), CLI startup (≈4.5×), no-op incremental rebuilds (≈5.4×), and clean (≈4.8×). The native build path invokes GHC directly, skipping cabal's package-database queries and build-plan calculation, and hx is a native Rust binary with no GHC-runtime startup cost.
+**hx is faster than cabal on all four operations measured here** — cold builds (≈5.2×), CLI startup (≈5.8×), no-op incremental rebuilds (≈5.7×), and clean (≈4.1×). The native build path invokes GHC directly, skipping cabal's package-database queries and build-plan calculation, and hx is a native Rust binary with no GHC-runtime startup cost.
 
 Two of those weren't always wins, and we'd rather say so than airbrush it: the no-op rebuild used to spend ~74 ms spawning `ghc`/`ghc-pkg` before realizing nothing had changed, and `clean` used to spin up the plugin runtime needlessly. Both paths were short-circuited. Earlier published cabal figures for incremental and clean were also overstated; these numbers are measured fresh.
+
+## Dependency resolution
+
+`hx lock` reads a cached, pre-parsed Hackage index, so a warm lock of a project with real dependencies is **~37 ms**. The first lock after the index changes parses the full ~90 MB index — evaluating each package's `.cabal` conditionals — in **~4.9 s**, a one-time cost that is then cached for 24 hours. The warm path is unaffected.
 
 ## Native Build Mode
 
@@ -72,6 +76,6 @@ hyperfine --warmup 3 'hx build --native' 'cabal build'
 
 Full methodology and the exact test files are in [`docs/BENCHMARKS.md`](https://github.com/arcanist-sh/hx/blob/main/docs/BENCHMARKS.md).
 
-## Not re-measured for 0.7.7
+## Not re-measured for 0.8.0
 
-Project init, single-file-change incremental builds, preprocessor overhead, dependency-resolution/solver scaling, and memory usage were measured on older releases but have **not** been re-run for 0.7.7. Rather than present stale figures as current, they're omitted here. Contributions welcome — [open an issue](https://github.com/arcanist-sh/hx/issues).
+Project init, single-file-change incremental builds, preprocessor overhead, and memory usage were measured on older releases but have **not** been re-run for 0.8.0. Rather than present stale figures as current, they're omitted here. Contributions welcome — [open an issue](https://github.com/arcanist-sh/hx/issues).

@@ -55,6 +55,21 @@ Three project shapes that did not build untargeted before this series — the mu
 
 Correctness includes knowing what you cannot do. The BHC backend drives the shipped compiler through its real command-line interface, sets the library path its linker needs, and — because BHC can exit zero on a failed compile — reads the output rather than trusting the exit code. Where BHC cannot yet compile a program, hx says so and fails, instead of reporting a success that did not happen. The boundary is drawn where it actually is.
 
+## Correctness did not cost speed
+
+A common bargain is that getting a thing right makes it slower. We re-measured at 0.8.0 to check, against cabal, on the workflows you run all day:
+
+| Operation | hx | cabal | |
+|---|---|---|---|
+| CLI startup | 3.2 ms | 18.6 ms | 5.8× |
+| Cold build | 0.39 s | 2.04 s | 5.2× |
+| Incremental (no-op) | 3.2 ms | 18.2 ms | 5.7× |
+| Clean | 4.7 ms | 18.9 ms | 4.1× |
+
+Every operation held or improved on 0.7. The correctness work lives in the lockfile path, not the build path, so the numbers above were never going to move much — but there was one place it could, and did. Evaluating every package's conditionals while parsing the full Hackage index made the first cold lock about a third slower. We measured it, found a lowercased copy of every line being allocated across a ninety-megabyte index, removed it, and got most of that back. The cold parse is a one-time cost, cached for a day; a warm lock is around thirty-seven milliseconds, unchanged.
+
+The point is not the thirty-seven milliseconds. The point is that the regression was found by measuring, not by a user filing it. That is the same discipline as the rest of the release, pointed at performance.
+
 ## The state of hx
 
 0.8.0 is not a feature release. It is the release where the foundation stopped shifting. hx adopts the project you have, locks exactly what it builds, builds every shape of project Haskell programmers actually write, and tells you the truth about the result.
