@@ -104,9 +104,9 @@ project-b/
 ```bash
 hx toolchain list              # List installed toolchains
 hx toolchain install 9.8.2     # Install specific GHC version
-hx toolchain install --lts     # Install latest LTS GHC
+hx toolchain install --bhc 0.2.3  # Install the BHC compiler
 hx toolchain remove 9.4.8      # Remove a version
-hx toolchain default 9.8.2     # Set default version
+hx toolchain use 9.8.2         # Set the active version
 ```
 
 ### HLS Integration
@@ -153,8 +153,23 @@ deps = ["base", "bytestring"]
 ```bash
 hx lock               # Generate/update lockfile
 hx lock --check       # Verify lockfile is up-to-date
-hx lock --upgrade     # Upgrade all dependencies
-hx lock --upgrade text aeson  # Upgrade specific packages
+hx lock --update      # Update all dependencies
+hx lock --update text aeson   # Update specific packages
+```
+
+### Lockfiles That Mean Something
+
+The lockfile records what your project actually builds — nothing more. The
+native solver evaluates each `.cabal` file's conditionals (`os(…)`, `arch(…)`,
+`impl(ghc …)`, `flag(…)`) against your target GHC and platform, and excludes the
+dependencies of disabled components (`buildable: False`). So a Windows-only
+`Win32` or a legacy-GHC `semigroups` never leaks into a macOS lockfile. Because
+the lockfile is real, you can ask questions of it:
+
+```bash
+hx why aeson          # Why is this package in the build?
+hx deps tree          # Show the resolved dependency tree
+hx outdated           # Which dependencies have newer versions?
 ```
 
 ### Stackage Snapshots
@@ -241,7 +256,7 @@ $ hx doctor
 
 Environment Check
 ─────────────────
-✓ hx 0.7.7
+✓ hx 0.8.0
 ✓ GHC 9.8.2
 ✓ Cabal 3.12.1.0
 ✓ HLS 2.6.0.0 (compatible)
@@ -266,13 +281,17 @@ hx works with your existing Haskell projects. No migration required.
 
 ### Cabal Compatibility
 
-hx reads and writes standard `.cabal` files:
+hx reads and writes standard `.cabal` files. Adopt an existing project — a bare
+`.cabal` with no `cabal.project` works too:
 
 ```bash
 cd existing-cabal-project/
-hx init --from-cabal     # Generate hx.toml from .cabal
+hx import --from cabal    # Generate hx.toml from the project
 hx build                 # Works immediately
 ```
+
+A `cabal.project` with several local packages is a workspace: `hx build` and
+`hx test` cover every member, and `hx build --package <name>` targets one.
 
 ### Stack Migration
 
@@ -280,7 +299,7 @@ Import Stack projects:
 
 ```bash
 cd existing-stack-project/
-hx init --from-stack     # Import from stack.yaml
+hx import --from stack    # Import from stack.yaml
 hx build
 ```
 
@@ -417,19 +436,17 @@ Extend hx with Steel (Scheme) scripts:
 Generate Nix expressions:
 
 ```bash
-hx nix generate          # Generate flake.nix
+hx nix flake             # Generate flake.nix
 hx nix shell             # Enter Nix shell with deps
 ```
 
 ### Distribution
 
-Generate install scripts and package manifests:
+Generate a Homebrew formula or an install script:
 
 ```bash
-hx dist homebrew         # Generate Homebrew formula
-hx dist deb              # Generate .deb package spec
-hx dist rpm              # Generate .rpm spec
-hx dist installer        # Generate install.sh script
+hx dist formula          # Generate a Homebrew formula
+hx dist install-script   # Generate an install.sh script
 ```
 
 ---
@@ -500,7 +517,7 @@ plugins.retrie = false
 hx server start          # Start HLS in background
 hx server status         # Check HLS status
 hx server restart        # Restart HLS
-hx server logs           # View HLS logs
+hx server stop           # Stop HLS
 ```
 
 ---
@@ -528,7 +545,7 @@ hx server logs           # View HLS logs
 Ready to try hx? Install it in seconds:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/arcanist-sh/hx/main/install.sh | sh
+curl -fsSL https://arcanist.sh/hx/install.sh | sh
 ```
 
 Then create your first project:

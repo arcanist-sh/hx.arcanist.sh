@@ -75,8 +75,8 @@ gradient_title = true
 # build time. The static badge/badge_url below are only a fallback if the API
 # is unavailable during a build.
 version_repo = "arcanist-sh/hx"
-badge = "v0.7.7"
-badge_url = "https://github.com/arcanist-sh/hx/releases/tag/v0.7.7"
+badge = "v0.8.0"
+badge_url = "https://github.com/arcanist-sh/hx/releases/tag/v0.8.0"
 features_title = "Why hx?"
 features_subtitle = "Everything you need to build Haskell projects. No more juggling cabal, stack, and ghcup."
 
@@ -134,7 +134,7 @@ icon = """<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox
 
 [[extra.product.features]]
 title = "Agent-ready"
-description = "Drive hx from AI coding agents: a built-in MCP server (hx mcp), an AGENTS.md guide, and a Claude skill expose build, test, and dependency tools — with structured errors and meaningful exit codes."
+description = "Drive hx from AI coding agents: a built-in MCP server (hx mcp), an AGENTS.md guide, a Claude skill, and an llms.txt project map expose build, test, and dependency tools — with structured errors and meaningful exit codes."
 icon = """<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>"""
 
 # Benchmark highlights (shown on landing page)
