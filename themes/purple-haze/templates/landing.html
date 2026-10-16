@@ -66,8 +66,8 @@
         </div>
 
         {# Main heading - massive, in-your-face #}
-        <h1 class="hero__title brand-text--hero">
-            {{ config.title }}
+        <h1 class="hero__title hero__title--lockup">
+            {% include "partials/hx-lockup.html" %}
         </h1>
 
         {# Main tagline - Clash Display, directly below hx #}
@@ -360,7 +360,7 @@
         {# Footer Bottom #}
         <div class="landing-footer__bottom">
             <div class="landing-footer__brand">
-                <span class="brand-text">{{ config.title }}</span>
+                <a href="{{ config.base_url | safe }}" class="landing-footer__logo" aria-label="{{ config.title }} home">{% include "partials/hx-lockup.html" %}</a>
                 {% if config.extra.product.footer_tagline %}
                 <p class="landing-footer__tagline">{{ config.extra.product.footer_tagline }}</p>
                 {% endif %}

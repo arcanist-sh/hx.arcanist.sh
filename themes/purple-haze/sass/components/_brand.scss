@@ -75,3 +75,42 @@ $brand-gradient: linear-gradient(
     font-size: 10rem !important;
   }
 }
+
+// -----------------------------------------------------------------------------
+// hx identity: pinwheel cube + Facet wordmark (partials/hx-lockup.html)
+// -----------------------------------------------------------------------------
+.hx-lockup,
+.hx-mark {
+  display: block;
+  color: var(--ctp-mauve);
+  overflow: visible;
+}
+
+.header__logo .hx-lockup {
+  width: auto;
+  height: 24px;
+}
+
+.hero__title--lockup {
+  line-height: 0;
+  margin-bottom: 1.5rem;
+
+  .hx-lockup {
+    width: auto;
+    height: 4.25rem;
+
+    @media screen and (min-width: 640px) { height: 5rem; }
+    @media screen and (min-width: 1024px) { height: 6.5rem; }
+    @media screen and (min-width: 1280px) { height: 7.5rem; }
+  }
+}
+
+.landing-footer__logo {
+  display: inline-block;
+  width: fit-content;
+
+  .hx-lockup {
+    width: auto;
+    height: 26px;
+  }
+}

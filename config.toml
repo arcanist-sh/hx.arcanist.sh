@@ -58,6 +58,7 @@ twitter_site = "@raskell_io"
 # Favicon
 favicon = "favicon.ico"
 favicon_png = "favicon.png"
+favicon_svg = "favicon.svg"
 icon_192 = "icon-192.png"
 apple_touch_icon = "apple-touch-icon.png"
 webmanifest = "site.webmanifest"

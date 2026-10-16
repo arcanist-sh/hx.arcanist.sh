@@ -219,7 +219,7 @@
             {% endif %}
             <img src="{{ get_url(path=logo_path) | safe }}" alt="" aria-hidden="true">
             {% endif %}
-            <span class="brand-text">{{ config.title }}</span>
+            {% include "partials/hx-lockup.html" %}
         </a>
     </div>
 
