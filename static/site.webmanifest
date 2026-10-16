@@ -4,7 +4,7 @@
   "description": "An extremely fast Haskell package and project manager, written in Rust.",
   "start_url": "./",
   "display": "standalone",
-  "theme_color": "#8839ef",
+  "theme_color": "#179299",
   "background_color": "#0f0f0f",
   "icons": [
     {

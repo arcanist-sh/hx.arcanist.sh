@@ -934,11 +934,11 @@
       margin-bottom: var(--space-4);
       background: linear-gradient(
         135deg,
-        #cba6f7 0%,
-        #f5c2e7 25%,
-        #b4befe 50%,
-        #89b4fa 75%,
-        #cba6f7 100%
+        #94e2d5 0%,
+        #a6e3a1 25%,
+        #89dceb 50%,
+        #89dceb 75%,
+        #94e2d5 100%
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -1087,12 +1087,12 @@
       background: var(--color-bg-elevated);
       padding: 0.2em 0.4em;
       border-radius: 4px;
-      color: var(--ctp-mauve);
+      color: var(--ctp-teal);
     }
 
     // Blockquotes
     blockquote {
-      border-left: 4px solid var(--ctp-mauve);
+      border-left: 4px solid var(--ctp-teal);
       padding-left: var(--space-4);
       margin: var(--space-6) 0;
       color: var(--color-text-muted);

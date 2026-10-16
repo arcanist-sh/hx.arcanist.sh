@@ -5,9 +5,9 @@
 // Shared brand gradient - purple to blue to Haskell purple
 $brand-gradient: linear-gradient(
   135deg,
-  #cba6f7 0%,
-  #89b4fa 50%,
-  #5e5086 100%
+  #94e2d5 0%,
+  #89dceb 50%,
+  #179299 100%
 );
 
 // Mixin for brand text styling
@@ -82,7 +82,7 @@ $brand-gradient: linear-gradient(
 .hx-lockup,
 .hx-mark {
   display: block;
-  color: var(--ctp-mauve);
+  color: var(--ctp-teal);
   overflow: visible;
 }
 

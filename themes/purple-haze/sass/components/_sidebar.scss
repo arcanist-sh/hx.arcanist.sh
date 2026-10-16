@@ -206,7 +206,7 @@
 
   // Active state with Nintendo-style indicator
   &.active {
-    background: rgba(203, 166, 247, 0.1);
+    background: rgba(148, 226, 213, 0.1);
     color: var(--color-accent);
     font-weight: var(--font-medium);
 
@@ -443,7 +443,7 @@
   &::after {
     background: var(--color-bg-elevated);
     border-color: var(--color-accent);
-    box-shadow: 0 0 0 2px rgba(203, 166, 247, 0.2);
+    box-shadow: 0 0 0 2px rgba(148, 226, 213, 0.2);
   }
 
   &::before {

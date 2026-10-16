@@ -113,17 +113,17 @@ $ctp-latte: (
   --color-border: var(--ctp-surface1);
   --color-border-muted: var(--ctp-surface0);
 
-  // Accents - Purple/mauve focus
-  --color-accent: var(--ctp-mauve);
-  --color-accent-hover: var(--ctp-lavender);
-  --color-accent-subtle: var(--ctp-pink);
-  --color-link: var(--ctp-mauve);
-  --color-link-hover: var(--ctp-lavender);
-  --color-highlight: var(--ctp-lavender);
+  // Accents - teal focus (hx identity)
+  --color-accent: var(--ctp-teal);
+  --color-accent-hover: var(--ctp-sky);
+  --color-accent-subtle: var(--ctp-green);
+  --color-link: var(--ctp-teal);
+  --color-link-hover: var(--ctp-sky);
+  --color-highlight: var(--ctp-sky);
 
-  // Primary action buttons - vibrant purple
-  --color-primary: var(--ctp-mauve);
-  --color-primary-hover: var(--ctp-lavender);
+  // Primary action buttons - teal
+  --color-primary: var(--ctp-teal);
+  --color-primary-hover: var(--ctp-sky);
   --color-primary-text: var(--ctp-crust);
 
   // Secondary elements
@@ -135,7 +135,7 @@ $ctp-latte: (
   --color-success: var(--ctp-green);
   --color-warning: var(--ctp-yellow);
   --color-error: var(--ctp-red);
-  --color-info: var(--ctp-lavender);
+  --color-info: var(--ctp-sky);
 
   // Code blocks
   --color-code-bg: var(--ctp-mantle);

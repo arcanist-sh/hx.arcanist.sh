@@ -88,17 +88,17 @@
   // Volumetric gradient: highlight, mid-tone, darker edge
   background: radial-gradient(
     circle at 30% 30%,
-    rgba(245, 224, 255, 0.95) 0%,
-    rgba(220, 190, 255, 0.92) 15%,
-    rgba(203, 166, 247, 0.9) 40%,
-    rgba(180, 140, 230, 0.85) 70%,
-    rgba(150, 110, 200, 0.8) 100%
+    rgba(228, 251, 246, 0.95) 0%,
+    rgba(196, 241, 233, 0.92) 15%,
+    rgba(148, 226, 213, 0.9) 40%,
+    rgba(108, 200, 188, 0.85) 70%,
+    rgba(64, 160, 152, 0.8) 100%
   );
 
   // Subtle inner glow for extra depth
   box-shadow:
-    inset -20px -20px 60px rgba(100, 60, 160, 0.3),
-    inset 20px 20px 60px rgba(255, 230, 255, 0.2);
+    inset -20px -20px 60px rgba(16, 92, 96, 0.3),
+    inset 20px 20px 60px rgba(230, 255, 250, 0.2);
 }
 
 // Background orbs - out of focus, smaller, further back
@@ -109,9 +109,9 @@
   // Softer gradient for distant orbs
   background: radial-gradient(
     circle at 30% 30%,
-    rgba(230, 210, 255, 0.7) 0%,
-    rgba(200, 170, 240, 0.6) 40%,
-    rgba(170, 140, 220, 0.5) 100%
+    rgba(214, 246, 240, 0.7) 0%,
+    rgba(170, 228, 218, 0.6) 40%,
+    rgba(120, 200, 190, 0.5) 100%
   );
 
   // No inner shadow for blurry orbs
@@ -604,7 +604,7 @@
 .install-toggle-icon {
   display: flex;
   align-items: center;
-  color: var(--ctp-mauve);
+  color: var(--ctp-teal);
 
   svg {
     width: 32px;
@@ -684,15 +684,15 @@
   }
 
   &.active {
-    background: rgba(203, 166, 247, 0.15);
-    color: var(--ctp-mauve);
+    background: rgba(148, 226, 213, 0.15);
+    color: var(--ctp-teal);
 
     [data-theme="light"] & {
-      background: rgba(203, 166, 247, 0.2);
+      background: rgba(148, 226, 213, 0.2);
     }
 
     svg {
-      color: var(--ctp-mauve);
+      color: var(--ctp-teal);
     }
   }
 }
@@ -913,9 +913,9 @@
   letter-spacing: var(--tracking-tight);
   background: linear-gradient(
     135deg,
-    #cba6f7 0%,
-    #89b4fa 50%,
-    #5e5086 100%
+    #94e2d5 0%,
+    #89dceb 50%,
+    #179299 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -974,12 +974,12 @@
   width: 48px;
   height: 48px;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, rgba(203, 166, 247, 0.15) 0%, rgba(137, 180, 250, 0.15) 100%);
+  background: linear-gradient(135deg, rgba(148, 226, 213, 0.15) 0%, rgba(137, 220, 235, 0.15) 100%);
   border-radius: 14px;
-  color: var(--ctp-mauve);
+  color: var(--ctp-teal);
 
   [data-theme="light"] & {
-    background: linear-gradient(135deg, rgba(203, 166, 247, 0.2) 0%, rgba(137, 180, 250, 0.2) 100%);
+    background: linear-gradient(135deg, rgba(148, 226, 213, 0.2) 0%, rgba(137, 220, 235, 0.2) 100%);
   }
 
   svg {
@@ -1024,9 +1024,9 @@
     letter-spacing: var(--tracking-tight);
     background: linear-gradient(
       135deg,
-      #cba6f7 0%,
-      #89b4fa 50%,
-      #5e5086 100%
+      #94e2d5 0%,
+      #89dceb 50%,
+      #179299 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1157,9 +1157,9 @@
   letter-spacing: var(--tracking-tight);
   background: linear-gradient(
     135deg,
-    #cba6f7 0%,
-    #89b4fa 50%,
-    #5e5086 100%
+    #94e2d5 0%,
+    #89dceb 50%,
+    #179299 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1263,8 +1263,8 @@
 .benchmark-bar__fill--hx {
   background: linear-gradient(
     90deg,
-    #cba6f7 0%,
-    #89b4fa 50%,
+    #94e2d5 0%,
+    #89dceb 50%,
     #74c7ec 100%
   );
 }
@@ -1356,12 +1356,12 @@
 }
 
 .benchmark-card__bar--native {
-  background: linear-gradient(135deg, rgba(203, 166, 247, 0.2) 0%, rgba(180, 190, 254, 0.2) 100%);
-  border: 1px solid var(--ctp-mauve);
+  background: linear-gradient(135deg, rgba(148, 226, 213, 0.2) 0%, rgba(137, 220, 235, 0.2) 100%);
+  border: 1px solid var(--ctp-teal);
   color: var(--color-text);
 
   .benchmark-card__bar-label {
-    color: var(--ctp-mauve);
+    color: var(--ctp-teal);
     font-weight: var(--font-semibold);
   }
 
@@ -1425,9 +1425,9 @@
   letter-spacing: var(--tracking-tight);
   background: linear-gradient(
     135deg,
-    #cba6f7 0%,
-    #89b4fa 50%,
-    #5e5086 100%
+    #94e2d5 0%,
+    #89dceb 50%,
+    #179299 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1488,13 +1488,13 @@
   width: 56px;
   height: 56px;
   margin-bottom: 1.25rem;
-  background: linear-gradient(135deg, rgba(203, 166, 247, 0.15) 0%, rgba(137, 180, 250, 0.15) 100%);
+  background: linear-gradient(135deg, rgba(148, 226, 213, 0.15) 0%, rgba(137, 220, 235, 0.15) 100%);
   border-radius: 16px;
-  color: var(--ctp-mauve);
+  color: var(--ctp-teal);
   transition: transform 0.3s ease;
 
   [data-theme="light"] & {
-    background: linear-gradient(135deg, rgba(203, 166, 247, 0.2) 0%, rgba(137, 180, 250, 0.2) 100%);
+    background: linear-gradient(135deg, rgba(148, 226, 213, 0.2) 0%, rgba(137, 220, 235, 0.2) 100%);
   }
 
   svg {
