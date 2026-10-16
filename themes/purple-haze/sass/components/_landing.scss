@@ -1742,14 +1742,14 @@
 // Inspired by bhc.arcanist.sh design language
 // =============================================================================
 
-// BHC color palette (from brutalist-blueprint)
-$bhc-accent: #60a5fa;
-$bhc-accent-dim: #3b82f6;
-$bhc-bg-dark: #0a0f1a;
-$bhc-bg-surface: #0f172a;
-$bhc-border: #1e3a5f;
-$bhc-text: #e2e8f0;
-$bhc-text-dim: #94a3b8;
+// BHC color palette (bhc.arcanist.sh: mauve brandmark on near-black, Catppuccin grid lines)
+$bhc-accent: #cba6f7;
+$bhc-accent-dim: #8839ef;
+$bhc-bg-dark: #0a0a0f;
+$bhc-bg-surface: #12121a;
+$bhc-border: #45475a;
+$bhc-text: #cdd6f4;
+$bhc-text-dim: #a6adc8;
 
 .bhc-promo {
   position: relative;
@@ -1759,7 +1759,7 @@ $bhc-text-dim: #94a3b8;
 
   // Light theme adjustments
   [data-theme="light"] & {
-    background: #f1f5f9;
+    background: #eff1f5;
 
     .bhc-promo__rail {
       background: linear-gradient(to bottom, rgba($bhc-accent, 0.15), transparent 30%, transparent 70%, rgba($bhc-accent, 0.15));
@@ -1770,27 +1770,36 @@ $bhc-text-dim: #94a3b8;
       border-color: rgba($bhc-accent-dim, 0.2);
     }
 
+    .bhc-promo__header {
+      border-color: rgba($bhc-accent-dim, 0.2);
+    }
+
     .bhc-promo__label {
       color: $bhc-accent-dim;
     }
 
     .bhc-promo__title-brand {
-      background: linear-gradient(135deg, $bhc-accent-dim 0%, #2563eb 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      color: $bhc-accent-dim;
     }
 
     .bhc-promo__title-sub {
-      color: #475569;
+      color: #5c5f77;
     }
 
     .bhc-promo__description {
-      color: #334155;
+      color: #4c4f69;
+
+      strong {
+        color: $bhc-accent-dim;
+      }
+    }
+
+    .bhc-promo__brand-inline {
+      color: $bhc-accent-dim;
     }
 
     .bhc-promo__feature {
-      color: #475569;
+      color: #5c5f77;
       border-color: rgba($bhc-accent-dim, 0.2);
     }
 
@@ -1799,7 +1808,7 @@ $bhc-text-dim: #94a3b8;
     }
 
     .bhc-promo__terminal {
-      background: #1e293b;
+      background: #1e1e2e;
     }
   }
 }
@@ -1912,19 +1921,21 @@ $bhc-text-dim: #94a3b8;
   margin: 0;
 }
 
+// bhc lockup (partials/bhc-lockup.html), drawn in currentColor
 .bhc-promo__title-brand {
-  font-family: 'Clash Display', 'Inter', system-ui, sans-serif;
-  font-size: 2.5rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, $bhc-accent 0%, #93c5fd 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  line-height: 1.1;
+  display: block;
+  color: $bhc-accent;
+  line-height: 0;
+  margin-bottom: 0.5rem;
 
-  @media (min-width: 640px) {
-    font-size: 3rem;
+  .bhc-lockup {
+    display: block;
+    width: auto;
+    height: 2.5rem;
+
+    @media (min-width: 640px) {
+      height: 3rem;
+    }
   }
 }
 
@@ -1986,7 +1997,7 @@ $bhc-text-dim: #94a3b8;
 
 // Terminal widget (brutalist style)
 .bhc-promo__terminal {
-  background: #0d1117;
+  background: #0a0a0f;
   border: 1px solid $bhc-border;
   font-family: 'JetBrains Mono', 'SF Mono', monospace;
   overflow: hidden;
