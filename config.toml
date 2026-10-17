@@ -76,8 +76,8 @@ gradient_title = true
 # build time. The static badge/badge_url below are only a fallback if the API
 # is unavailable during a build.
 version_repo = "arcanist-sh/hx"
-badge = "v0.8.0"
-badge_url = "https://github.com/arcanist-sh/hx/releases/tag/v0.8.0"
+badge = "v0.9.2"
+badge_url = "https://github.com/arcanist-sh/hx/releases/tag/v0.9.2"
 features_title = "Why hx?"
 features_subtitle = "Everything you need to build Haskell projects. No more juggling cabal, stack, and ghcup."
 
@@ -92,13 +92,13 @@ default = true
 [[extra.product.install_methods]]
 id = "cargo"
 label = "Cargo"
-command = "cargo install hx-cli"
+command = "cargo install --git https://github.com/arcanist-sh/hx hx-cli"
 icon = """<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linejoin="round" stroke-width="1"><path stroke-linecap="round" d="M1.5 7L8 10.5L14.5 7m-10-2.5l3.503 2L14.498 3M4.5 5.5v7m3.5-6V14"/><path stroke-linecap="round" d="M8.003 3L11.5 4.5v8"/><path stroke-linecap="square" d="M1.5 6.984V11l6.503 3.5L14.5 11V3L11 1.5l-6.5 3v1z"/></g></svg>"""
 
 [[extra.product.install_methods]]
 id = "aqua"
 label = "aqua"
-command = "aqua g -i arcanist-sh/hx"
+command = "aqua g -i raskell-io/hx"
 icon = """<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>"""
 footer_tagline = "The modern Haskell toolchain."
 footer_note = "Built with love by <a href='https://arcanist.sh'>arcanist.sh</a>"
@@ -149,20 +149,20 @@ cta_url = "/benchmarks/"
 [[extra.product.benchmarks.stats]]
 label = "Cold build"
 native_label = "<span class=\"brand-text\">hx</span>"
-native = "0.39s"
+native = "0.52s"
 baseline_label = "cabal"
-cabal = "2.04s"
-speedup = "5.2x"
-hx_percent = "22"
+cabal = "2.89s"
+speedup = "5.6x"
+hx_percent = "18"
 
 [[extra.product.benchmarks.stats]]
-label = "Incremental"
+label = "No-op rebuild"
 native_label = "<span class=\"brand-text\">hx</span>"
-native = "3.2ms"
+native = "3.7ms"
 baseline_label = "cabal"
-cabal = "18.2ms"
-speedup = "5.7x"
-hx_percent = "18"
+cabal = "17.7ms"
+speedup = "4.8x"
+hx_percent = "21"
 
 # Social links
 [extra.social]

@@ -84,7 +84,7 @@ curl -fsSL https://arcanist.sh/hx/install.sh | sh
 brew install arcanist-sh/tap/hx
 
 # Then:
-hx new my-app
+hx init my-app
 cd my-app
 hx run
 ```

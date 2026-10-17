@@ -12,7 +12,7 @@ Install hx and create your first project in under a minute.
 curl -fsSL https://arcanist.sh/hx/install.sh | sh
 
 # Create a new project
-hx new my-app && cd my-app
+hx init my-app && cd my-app
 
 # Build and run
 hx run
