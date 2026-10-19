@@ -1,6 +1,6 @@
 +++
 title = "hx and the 2026 Haskell Toolchain"
-description = "GHC 9.14, Cabal 3.18, HLS 2.14, Stackage LTS 24 and BHC 0.2.22: the next hx release installs and understands all of them, with or without ghcup. A tour of what is new and how to use it."
+description = "GHC 9.14, Cabal 3.18, HLS 2.14, Stackage LTS 24 and BHC 0.2.22: hx 0.9.3 installs and understands all of them, with or without ghcup. A tour of what is new and how to use it."
 date = 2026-10-19
 template = "page.html"
 
@@ -11,7 +11,7 @@ tags = ["release", "toolchain", "ghc", "stackage"]
 author = "arcanist.sh"
 +++
 
-The Haskell toolchain moved a long way this year. GHC 9.14 arrived, Cabal reached 3.18, HLS 2.14 supports every maintained compiler, and Stackage LTS 24 settled on GHC 9.10. The next hx release brings all of that within one command: install it, pin it, and get told when two pieces do not fit together.
+The Haskell toolchain moved a long way this year. GHC 9.14 arrived, Cabal reached 3.18, HLS 2.14 supports every maintained compiler, and Stackage LTS 24 settled on GHC 9.10. hx 0.9.3 brings all of that within one command: install it, pin it, and get told when two pieces do not fit together.
 
 This post walks through what is new and how to use it.
 
@@ -106,11 +106,11 @@ The nightly CI does what you do. One job installs GHC and Cabal with hx on a fre
 
 ## Getting it
 
-These changes land in the next hx release. To install hx, or to update an existing install when it ships:
+hx 0.9.3 is out now. Install it, or update an existing install:
 
 ```bash
 curl -fsSL https://arcanist.sh/hx/install.sh | sh
 hx upgrade
 ```
 
-Then `hx toolchain install` gives you the 2026 toolchain in one step.
+With Homebrew, `brew install arcanist-sh/tap/hx` (or `brew upgrade arcanist-sh/tap/hx`) installs the binary as `hxs`, next to Helix. Then `hx toolchain install` gives you the 2026 toolchain in one step.
