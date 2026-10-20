@@ -1,56 +1,13 @@
-# hx.arcanist.sh
+# hx.arcanist.sh (retired)
 
-Website for [hx](https://github.com/arcanist-sh/hx) — an extremely fast Haskell package and project manager, written in Rust.
+This was the website for [hx](https://github.com/arcanist-sh/hx). It has moved:
 
-**Live site:** https://hx.arcanist.sh
+- **Product page, benchmarks and blog:** [arcanist.sh/hx](https://arcanist.sh/hx/), built from
+  `content/hx/` in the arcanist.sh website repository
+- **Documentation:** [docs.arcanist.sh/hx](https://docs.arcanist.sh/hx/), built from
+  [hx.arcanist.sh-docs](https://github.com/arcanist-sh/hx.arcanist.sh-docs)
+- **Install script:** [arcanist.sh/hx/install.sh](https://arcanist.sh/hx/install.sh), kept in sync
+  with the copy in the [hx repository](https://github.com/arcanist-sh/hx)
 
-## Overview
-
-This repository contains the source for the hx product website. Built with [Zola](https://www.getzola.org/) using the `purple-haze` theme.
-
-## Development
-
-### Prerequisites
-
-- [Zola](https://www.getzola.org/documentation/getting-started/installation/) (0.18+)
-- Or use [mise](https://mise.jdx.dev/) to manage the environment:
-  ```bash
-  mise install
-  ```
-
-### Local Development
-
-```bash
-# Start development server with live reload
-zola serve
-
-# Build for production
-zola build
-
-# Check for errors
-zola check
-```
-
-The development server runs at `http://127.0.0.1:1111` by default.
-
-## Project Structure
-
-```
-.
-├── config.toml          # Zola configuration
-├── content/             # Markdown content pages
-├── static/              # Static assets (images, fonts, etc.)
-├── templates/           # HTML templates (if overriding theme)
-└── themes/
-    └── purple-haze/     # Custom theme
-        ├── sass/        # SCSS stylesheets
-        └── templates/   # Theme templates
-```
-
-## Deployment
-
-The site is automatically deployed on push to the main branch.
-
-## License
-
-MIT
+Nothing here is built or deployed any more, and the `hx.arcanist.sh` hostname is retired; the
+history is kept for reference.
